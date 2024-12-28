@@ -14,6 +14,7 @@ __pycache__/
 *$py.class
 
 __pycache__/**/*.pyc
+src/mt_libs/__pycache__/mt_utils.cpython-312.pyc
 
 # C extensions
 *.so
