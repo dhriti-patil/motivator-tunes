@@ -1,15 +1,22 @@
 # Created by .ignore support plugin (hsz.mobi)
 ### Python template
 # Byte-compiled / optimized / DLL files
+
+# Backup Files
+*bkp*
+
+# Others
+*.pyc*
+*
+
 __pycache__/
 *.py[cod]
 *$py.class
 
+__pycache__/**
+
 # C extensions
 *.so
-
-# Backup Files
-*bkp*
 
 # Distribution / packaging
 .Python
@@ -110,11 +117,13 @@ pip-selfcheck.json
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
 
 # User-specific stuff
+.idea/**
 .idea/**/workspace.xml
 .idea/**/tasks.xml
 .idea/**/usage.statistics.xml
 .idea/**/dictionaries
 .idea/**/shelf
+.idea/**/misc.xml
 
 # AWS User-specific
 .idea/**/aws.xml
