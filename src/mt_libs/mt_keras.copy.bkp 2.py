@@ -1,5 +1,3 @@
-# Define 
-
 import pandas as pd
 import matplotlib.pyplot as plt
 import json
@@ -19,8 +17,6 @@ SHUFFLE_BUFFER_SIZE = BATCH_SIZE * 2
 FFT_KEYWORD = "fft_"
 FFT_A = "_a"
 FFT_B = "_b"
-
-###################################################################################
 
 PLOT_DIR = "C:/Data/DhritiData/JugendForchst/JF_Project/Prototype/input/Plots/Emotions/"
 eeg = pd.read_csv("C:\Data\DhritiData\JugendForchst\JF_Project\Data\emotions.csv")
@@ -106,7 +102,18 @@ test_dataset = tf.data.Dataset.from_tensor_slices((x_test, y_test))
 train_dataset = train_dataset.shuffle(SHUFFLE_BUFFER_SIZE).batch(BATCH_SIZE)
 test_dataset = test_dataset.batch(BATCH_SIZE)
 
-######################################################################################
+"""
+## Make Class Weights using Naive method
+"""
+
+"""
+As we can see from the plot of number of samples per class, the dataset is imbalanced.
+Hence, we **calculate weights for each class** to make sure that the model is trained in
+a fair manner without preference to any specific class due to greater number of samples.
+
+We use a naive method to calculate these weights, finding an **inverse proportion** of
+each class and using that as the weight.
+"""
 
 vals_dict = {}
 for i in eeg["label"]:
@@ -116,11 +123,18 @@ for i in eeg["label"]:
         vals_dict[i] = 1
 total = sum(vals_dict.values())
 
+# Formula used - Naive method where
+# weight = 1 - (no. of samples present / total no. of samples)
+# So more the samples, lower the weight
 
 weight_dict = {k: (1 - (v / total)) for k, v in vals_dict.items()}
 print(weight_dict)
 
-#######################################################################################
+"""
+## Define simple function to plot all the metrics present in a `keras.callbacks.History`
+object
+"""
+
 
 def plot_history_metrics(history: keras.callbacks.History):
     total_plots = len(history.history)
@@ -137,11 +151,15 @@ def plot_history_metrics(history: keras.callbacks.History):
         plt.subplot(rows, cols, pos[i])
         plt.plot(range(len(value)), value)
         plt.title(str(key))
+    #plt.show()
     plt.savefig(PLOT_DIR + "plot_history_metrics.png")
     plt.close()
 
 
-###########################################################################################
+"""
+## Define function to generate Convolutional model
+"""
+
 
 def create_model():
     input_layer = keras.Input(shape=(512, 1))
@@ -203,10 +221,27 @@ def create_model():
 
     return keras.Model(inputs=input_layer, outputs=output_layer)
 
+
+"""
+## Get Model summary
+"""
+
 conv_model = create_model()
 conv_model.summary()
 
-########################################################################################
+"""
+## Define callbacks, optimizer, loss and metrics
+"""
+
+"""
+We set the number of epochs at 30 after performing extensive experimentation. It was seen
+that this was the optimal number, after performing Early-Stopping analysis as well.
+We define a Model Checkpoint callback to make sure that we only get the best model
+weights.
+We also define a ReduceLROnPlateau as there were several cases found during
+experimentation where the loss stagnated after a certain point. On the other hand, a
+direct LRScheduler was found to be too aggressive in its decay.
+"""
 
 epochs = 30
 
@@ -225,7 +260,18 @@ callbacks = [
 optimizer = keras.optimizers.Adam(amsgrad=True, learning_rate=0.001)
 loss = keras.losses.CategoricalCrossentropy()
 
-########################################################################################
+"""
+## Compile model and call `model.fit()`
+"""
+
+"""
+We use the `Adam` optimizer since it is commonly considered the best choice for
+preliminary training, and was found to be the best optimizer.
+We use `CategoricalCrossentropy` as the loss as our labels are in a one-hot-encoded form.
+
+We define the `TopKCategoricalAccuracy(k=3)`, `AUC`, `Precision` and `Recall` metrics to
+further aid in understanding the model better.
+"""
 
 conv_model.compile(
     optimizer=optimizer,
@@ -246,11 +292,19 @@ conv_model_history = conv_model.fit(
     class_weight=weight_dict,
 )
 
-##########################################################################################
+"""
+## Visualize model metrics during training
+"""
+
+"""
+We use the function defined above to see model metrics during training.
+"""
 
 plot_history_metrics(conv_model_history)
 
-##########################################################################################
+"""
+## Evaluate model on test data
+"""
 
 loss, accuracy, auc, precision, recall = conv_model.evaluate(test_dataset)
 print(f"Loss : {loss}")
@@ -259,7 +313,6 @@ print(f"Area under the Curve (ROC) : {auc}")
 print(f"Precision : {precision}")
 print(f"Recall : {recall}")
 
-#########################################################################################
 
 def view_evaluated_eeg_plots(model):
     start_index = random.randint(10, len(eeg))
@@ -297,5 +350,3 @@ def view_evaluated_eeg_plots(model):
 
 
 view_evaluated_eeg_plots(conv_model)
-
-##############################################################################################

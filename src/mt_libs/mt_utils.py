@@ -1,7 +1,8 @@
 import matplotlib.pyplot as plt
 from pandas import *
 from scipy import signal
-from os import *
+import csv
+import builtins
 
 
 ##############################################################
@@ -56,3 +57,15 @@ def SaveImage(X_Values, Y_Values, plotPath):
     plotFileName = plotPath
     plt.savefig(plotFileName)
     plt.close()
+
+def WriteToCSV(fileName,*args):
+    print(open is builtins.open)
+    with open(fileName, 'a') as file1:
+        strout = ""
+        for arg in args:
+            strout = strout + "," + str(arg)
+        file1.write(strout)
+    file1.close()
+
+
+
