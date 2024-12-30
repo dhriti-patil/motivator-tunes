@@ -25,7 +25,7 @@ def AnalyzeMood(inp_model_file_path):
 
     print("Analyze Mood")
     model = keras.saving.load_model(inp_model_file_path, custom_objects=None, compile=True, safe_mode=True)
-    header_names = ["TP9", "AF7", "AF8", "TP10"]
+
     while True:
         eeg_from_muse = None
         merged_eeg = None
@@ -42,10 +42,19 @@ def AnalyzeMood(inp_model_file_path):
         time.sleep(2)
 
         print(merged_eeg)
-        # fft_datas = process(eeg_from_muse)
-        # Predicted_Label = predict(model, fft_datas)
+        fft_datas = process(merged_eeg)
+        Predicted_Label = predict(model, fft_datas)
 
-        # print(Predicted_Label)
+        if Predicted_Label == [0]:
+            print("Predicted Emotion is: Negative")
+            print("++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+        elif Predicted_Label == [1]:
+            print("Predicted Emotion is: Neutral")
+            print("++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+        else:
+            print("Predicted Emotion is: Positive")
+            print("++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+
 
 
 

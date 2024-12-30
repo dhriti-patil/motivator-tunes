@@ -258,6 +258,8 @@ def CreateEmotionsModel(input_eeg_csv, plot_dir, inp_epochs=30):
         data_array = [np.asarray(data_array).astype(np.float32).reshape(-1, 512, 1)]
         original_labels = input_eeg_csv.loc[start_index:end_index, "label"]
         predicted_labels = np.argmax(model.predict(data_array, verbose=0), axis=1)
+        print(original_labels, predicted_labels)
+
         original_labels = [
             le.inverse_transform(np.array(label).reshape(-1))[0]
             for label in original_labels
@@ -286,3 +288,4 @@ def CreateEmotionsModel(input_eeg_csv, plot_dir, inp_epochs=30):
 
 
     view_evaluated_eeg_plots(conv_model)
+

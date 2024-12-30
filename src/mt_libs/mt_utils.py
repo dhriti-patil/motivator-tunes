@@ -41,7 +41,7 @@ def GetFFT(filteredSignal, frequency):
     freqs, psd = signal.welch(filteredSignal, frequency, nperseg=win)
     truncated_freqs = freqs[:512]
     truncated_psd = psd[:512]
-    return truncated_freqs, truncated_psd
+    return truncated_psd
 
 
 ##############################################################
