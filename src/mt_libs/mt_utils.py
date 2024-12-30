@@ -39,8 +39,8 @@ def FilterData(data_eeg_cleaned, numTaps, band1, band2):
 def GetFFT(filteredSignal, frequency):
     win = 4 * frequency
     freqs, psd = signal.welch(filteredSignal, frequency, nperseg=win)
-    truncated_freqs = freqs[:100]
-    truncated_psd = psd[:100]
+    truncated_freqs = freqs[:512]
+    truncated_psd = psd[:512]
     return truncated_freqs, truncated_psd
 
 
