@@ -190,7 +190,7 @@ def CreateEmotionsModel(input_eeg_csv, plot_dir, inp_epochs=30):
         )(x)
         output_layer = layers.Dense(num_classes, activation="softmax")(x)
 
-        return keras.model(inputs=input_layer, outputs=output_layer)
+        return keras.Model(inputs=input_layer, outputs=output_layer)
 
     conv_model = create_model()
     conv_model.summary()

@@ -4,14 +4,27 @@ from .mt_muselsl import record_direct
 from .mt_utils import GetFFT , FilterData
 import time
 
+
 model = None
 sampling_freq = 256.00
 array_size = 512
 muse_device = "Muse-15D3"
 
-def AnalyzeMood(inp_model_file_path):
 
+def AnalyzeMood(inp_model_file_path,song_data_values):
     global model
+
+    def song_to_be_played(song_data_values,genre_num,subgenre_num):
+        print('song to be played')
+        genre_name = song_data_values['song_data'][genre_num]['Name']
+        subgenre_name = song_data_values['song_data'][genre_num]['Sub-Genre'][subgenre_num]['Name']
+        subgenre_url = song_data_values['song_data'][genre_num]['Sub-Genre'][subgenre_num]['URL']
+
+        print("Genre: ", genre_name, '-', subgenre_name)
+        print("URl: ", subgenre_url)
+
+        input("Press Enter to continue...")
+
 
     def process(Data):
         filtered_signals = FilterData(Data, 100, 0.01, 0.06)
@@ -29,6 +42,9 @@ def AnalyzeMood(inp_model_file_path):
     while True:
         eeg_from_muse = None
         merged_eeg = None
+
+        song_to_be_played(song_data_values,0,0)
+
         try:
             eeg_from_muse = record_direct(5, None, filename=None, backend='auto', interface=None, name=muse_device)
             data_tp9 = eeg_from_muse["TP9"].tolist()
@@ -39,11 +55,15 @@ def AnalyzeMood(inp_model_file_path):
         except Exception as e:
             print (e)
 
+
+
         time.sleep(2)
 
         print(merged_eeg)
         fft_datas = process(merged_eeg)
         Predicted_Label = predict(model, fft_datas)
+
+
 
         if Predicted_Label == [0]:
             print("Predicted Emotion is: Negative")
