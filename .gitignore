@@ -5,6 +5,9 @@
 # Backup Files
 *bkp*
 
+# Keras Model Files
+*.keras
+
 # Others
 *.pyc*
 *
