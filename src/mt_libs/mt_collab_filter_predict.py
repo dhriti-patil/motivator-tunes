@@ -40,7 +40,4 @@ def predict_rating(model, data, ID_FILE, new_user_id, user2user_encoded, genre2g
     joined_predictions['Predicted_Rating'] = np.array(predicted_rating)
 
     sorted_dataframe = joined_predictions.sort_values(by='Predicted_Rating', ascending=False)
-
-    print(sorted_dataframe)
-
     return sorted_dataframe

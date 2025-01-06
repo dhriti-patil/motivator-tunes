@@ -3,28 +3,19 @@ import numpy as np
 from .mt_muselsl import record_direct
 from .mt_utils import GetFFT , FilterData
 import time
+import os
+from subprocess import Popen
 
 
 model = None
 sampling_freq = 256.00
 array_size = 512
 muse_device = "Muse-15D3"
+RECORDING_DURATION = 10
 
 
-def AnalyzeMood(inp_model_file_path,song_data_values):
+def AnalyzeMood(inp_model_file_path):
     global model
-
-    def song_to_be_played(song_data_values,genre_num,subgenre_num):
-        print('song to be played')
-        genre_name = song_data_values['song_data'][genre_num]['Name']
-        subgenre_name = song_data_values['song_data'][genre_num]['Sub-Genre'][subgenre_num]['Name']
-        subgenre_url = song_data_values['song_data'][genre_num]['Sub-Genre'][subgenre_num]['URL']
-
-        print("Genre: ", genre_name, '-', subgenre_name)
-        print("URl: ", subgenre_url)
-
-        input("Press Enter to continue...")
-
 
     def process(Data):
         filtered_signals = FilterData(Data, 100, 0.01, 0.06)
@@ -39,42 +30,57 @@ def AnalyzeMood(inp_model_file_path,song_data_values):
     print("Analyze Mood")
     model = keras.saving.load_model(inp_model_file_path, custom_objects=None, compile=True, safe_mode=True)
 
-    while True:
-        eeg_from_muse = None
-        merged_eeg = None
+    # while True:
+    eeg_from_muse = None
+    merged_eeg = None
+    try:
+        eeg_from_muse = record_direct(RECORDING_DURATION, None, filename=None, backend='auto', interface=None, name=muse_device)
+        data_tp9 = eeg_from_muse["TP9"].tolist()
+        data_af7 = eeg_from_muse["AF7"].tolist()
+        data_af8 = eeg_from_muse["AF8"].tolist()
+        data_tp10 = eeg_from_muse["TP10"].tolist()
+        merged_eeg = np.add(np.add(np.add(data_tp9, data_af7), data_af8), data_tp10)
+    except Exception as e:
+        print (e)
 
-        song_to_be_played(song_data_values,0,0)
+    time.sleep(2)
 
-        try:
-            eeg_from_muse = record_direct(5, None, filename=None, backend='auto', interface=None, name=muse_device)
-            data_tp9 = eeg_from_muse["TP9"].tolist()
-            data_af7 = eeg_from_muse["AF7"].tolist()
-            data_af8 = eeg_from_muse["AF8"].tolist()
-            data_tp10 = eeg_from_muse["TP10"].tolist()
-            merged_eeg = np.add(np.add(np.add(data_tp9, data_af7), data_af8), data_tp10)
-        except Exception as e:
-            print (e)
-
-
-
-        time.sleep(2)
-
-        print(merged_eeg)
-        fft_datas = process(merged_eeg)
-        Predicted_Label = predict(model, fft_datas)
+    print(merged_eeg)
+    fft_datas = process(merged_eeg)
+    Predicted_Label = predict(model, fft_datas)
 
 
 
-        if Predicted_Label == [0]:
-            print("Predicted Emotion is: Negative")
-            print("++++++++++++++++++++++++++++++++++++++++++++++++++++++")
-        elif Predicted_Label == [1]:
-            print("Predicted Emotion is: Neutral")
-            print("++++++++++++++++++++++++++++++++++++++++++++++++++++++")
-        else:
-            print("Predicted Emotion is: Positive")
-            print("++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+    if Predicted_Label == [0]:
+        print("Predicted Emotion is: Negative")
+        print("++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+    elif Predicted_Label == [1]:
+        print("Predicted Emotion is: Neutral")
+        print("++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+    else:
+        print("Predicted Emotion is: Positive")
+        print("++++++++++++++++++++++++++++++++++++++++++++++++++++++")
 
+    return Predicted_Label[0]
+
+def play_song(subgenre_url):
+    # CHROME_COMMAND = "\"C:\Program Files\Google\Chrome\Application\chrome.exe\""
+    BROWSER_COMMAND = "\"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe\""
+    sys_commad = BROWSER_COMMAND + " " + subgenre_url + " &"
+    print ("Executing : " + sys_commad)
+    try:
+        #os.system(sys_commad)
+        print(sys_commad)
+    except Exception as e:
+        print(e)
+
+def close_chrome():
+    sys_commad = "taskkill /F /IM msedge.exe /T > nul"
+    print ("Executing : " + sys_commad)
+    try:
+        os.system(sys_commad)
+    except Exception as e:
+        print(e)
 
 
 

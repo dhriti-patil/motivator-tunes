@@ -1,15 +1,17 @@
 import os.path
 import json
-
-from mt_libs.mt_keras import CreateEmotionsModel
-from mt_libs.mt_mood_analyze import AnalyzeMood
-from mt_libs.mt_collab_filter_create import create_collaboration_model
-from mt_libs.mt_collab_filter_predict import predict_rating
+import time
 import argparse
 import pandas as pd
+from mt_libs.mt_keras import CreateEmotionsModel
+from mt_libs.mt_mood_analyze import AnalyzeMood , play_song , close_chrome
+from mt_libs.mt_collab_filter_create import create_collaboration_model
+from mt_libs.mt_collab_filter_predict import predict_rating
+
 
 PLOT_DIR = "C:/Data/DhritiData/JugendForchst/JF_Project/Prototype/input/Plots/Emotions/"
 INPUT_EEG_CSV = "C:/Data/DhritiData/JugendForchst/JF_Project/Data/emotions.csv"
+GENRE_MODEL_FILE = 'GenreModel.json'
 
 def main():
     parser = argparse.ArgumentParser()
@@ -26,19 +28,34 @@ def main():
         if not os.path.exists(model_path):
             print("No Model Found...")
             exit(1)
-        with open('GenreModel.json') as f:
-            song_data_file = json.load(f)
-            print(song_data_file)
+        with open(GENRE_MODEL_FILE) as f:
+            song_data = json.load(f)
+            print(song_data)
 
-        #AnalyzeMood(model_path,song_data_file)
-        df = pd.DataFrame(columns=['User_ID', 'Genre_ID', 'rating', 'Genre'])
-        df.loc[0] = [99, 0, 1, "Genre1:classical - vocals"]
-        df.loc[1] = [99, 1, 2, "Genre1:classical - string inst."]
+        for genre in song_data['song_data']:
+            genre_name = genre['Name']
+            for sub_genre in genre['Sub-Genre']:
+                sub_genre_name=sub_genre['Name']
+                audio_url = sub_genre['URL']
+                print("Processing : " + genre_name + " - " + sub_genre_name)
+                print("Audio URL : " + audio_url)
+                close_chrome()
+                play_song(audio_url)
+                input("Press Enter to continue...")
+                print("Continuing...")
+                time.sleep(11)
+                rating = 1
+                rating = AnalyzeMood(model_path)
+                print("\n\n###### Obtained Rating : " + str(rating))
 
-        model , data, user2user_encoded, genre2genre_encoded, genre_encoded2genre = (
-            create_collaboration_model('InputRatingData.csv', 'Genre_IDs.csv', 30, df))
+                df = pd.DataFrame(columns=['User_ID', 'Genre_ID', 'rating', 'Genre'])
+                df.loc[0] = [99, 0, rating, "Genre1:classical - vocals"]
 
-        recommendations = predict_rating(model, data, 'Genre_IDs.csv', 99, user2user_encoded, genre2genre_encoded, genre_encoded2genre)
+                model , data, user2user_encoded, genre2genre_encoded, genre_encoded2genre = (
+                    create_collaboration_model('InputRatingData.csv', 'Genre_IDs.csv', 30, df))
+
+                recommendations = predict_rating(model, data, 'Genre_IDs.csv', 99, user2user_encoded, genre2genre_encoded, genre_encoded2genre)
+                print(recommendations)
 
     else:
         print ("Exiting")
