@@ -1,84 +1,84 @@
 ﻿User_ID,Genre_ID,rating,Genre
-0,0,0,Genre1:classical - vocals
-1,0,1,Genre1:classical - vocals
-2,0,2,Genre1:classical - vocals
-3,0,1,Genre1:classical - vocals
-4,0,2,Genre1:classical - vocals
-5,0,2,Genre1:classical - vocals
-6,0,1,Genre1:classical - vocals
-7,0,1,Genre1:classical - vocals
-8,0,0,Genre1:classical - vocals
-9,0,0,Genre1:classical - vocals
-10,0,1,Genre1:classical - vocals
-11,0,2,Genre1:classical - vocals
-12,0,1,Genre1:classical - vocals
-13,0,1,Genre1:classical - vocals
-14,0,0,Genre1:classical - vocals
-15,0,2,Genre1:classical - vocals
-16,0,2,Genre1:classical - vocals
-17,0,0,Genre1:classical - vocals
-18,0,2,Genre1:classical - vocals
-19,0,2,Genre1:classical - vocals
-0,1,0,Genre1:classical - string inst.
-1,1,0,Genre1:classical - string inst.
-2,1,0,Genre1:classical - string inst.
-3,1,2,Genre1:classical - string inst.
-4,1,1,Genre1:classical - string inst.
-5,1,2,Genre1:classical - string inst.
-6,1,1,Genre1:classical - string inst.
-7,1,2,Genre1:classical - string inst.
-8,1,2,Genre1:classical - string inst.
-9,1,2,Genre1:classical - string inst.
-10,1,2,Genre1:classical - string inst.
-11,1,1,Genre1:classical - string inst.
-12,1,2,Genre1:classical - string inst.
-13,1,0,Genre1:classical - string inst.
-14,1,1,Genre1:classical - string inst.
-15,1,0,Genre1:classical - string inst.
-16,1,1,Genre1:classical - string inst.
-17,1,2,Genre1:classical - string inst.
-18,1,1,Genre1:classical - string inst.
-19,1,1,Genre1:classical - string inst.
-0,2,0,Genre1:classical -percussion
-1,2,1,Genre1:classical -percussion
-2,2,1,Genre1:classical -percussion
-3,2,2,Genre1:classical -percussion
-4,2,1,Genre1:classical -percussion
-5,2,2,Genre1:classical -percussion
-6,2,2,Genre1:classical -percussion
-7,2,0,Genre1:classical -percussion
-8,2,2,Genre1:classical -percussion
-9,2,2,Genre1:classical -percussion
-10,2,1,Genre1:classical -percussion
-11,2,0,Genre1:classical -percussion
-12,2,1,Genre1:classical -percussion
-13,2,0,Genre1:classical -percussion
-14,2,1,Genre1:classical -percussion
-15,2,2,Genre1:classical -percussion
-16,2,1,Genre1:classical -percussion
-17,2,0,Genre1:classical -percussion
-18,2,0,Genre1:classical -percussion
-19,2,0,Genre1:classical -percussion
-0,3,0,Genre1:classical  - wind inst. 
-1,3,2,Genre1:classical  - wind inst. 
-2,3,1,Genre1:classical  - wind inst. 
-3,3,2,Genre1:classical  - wind inst. 
-4,3,1,Genre1:classical  - wind inst. 
-5,3,1,Genre1:classical  - wind inst. 
-6,3,0,Genre1:classical  - wind inst. 
-7,3,2,Genre1:classical  - wind inst. 
-8,3,2,Genre1:classical  - wind inst. 
-9,3,1,Genre1:classical  - wind inst. 
-10,3,2,Genre1:classical  - wind inst. 
-11,3,0,Genre1:classical  - wind inst. 
-12,3,2,Genre1:classical  - wind inst. 
-13,3,2,Genre1:classical  - wind inst. 
-14,3,2,Genre1:classical  - wind inst. 
-15,3,1,Genre1:classical  - wind inst. 
-16,3,0,Genre1:classical  - wind inst. 
-17,3,2,Genre1:classical  - wind inst. 
-18,3,2,Genre1:classical  - wind inst. 
-19,3,1,Genre1:classical  - wind inst. 
+0,0,0,Genre1:European Classical - vocals
+1,0,1,Genre1:European Classical - vocals
+2,0,2,Genre1:European Classical - vocals
+3,0,1,Genre1:European Classical - vocals
+4,0,2,Genre1:European Classical - vocals
+5,0,2,Genre1:European Classical - vocals
+6,0,1,Genre1:European Classical - vocals
+7,0,1,Genre1:European Classical - vocals
+8,0,0,Genre1:European Classical - vocals
+9,0,0,Genre1:European Classical - vocals
+10,0,1,Genre1:European Classical - vocals
+11,0,2,Genre1:European Classical - vocals
+12,0,1,Genre1:European Classical - vocals
+13,0,1,Genre1:European Classical - vocals
+14,0,0,Genre1:European Classical - vocals
+15,0,2,Genre1:European Classical - vocals
+16,0,2,Genre1:European Classical - vocals
+17,0,0,Genre1:European Classical - vocals
+18,0,2,Genre1:European Classical - vocals
+19,0,2,Genre1:European Classical - vocals
+0,1,0,Genre1:European Classical - string inst.
+1,1,0,Genre1:European Classical - string inst.
+2,1,0,Genre1:European Classical - string inst.
+3,1,2,Genre1:European Classical - string inst.
+4,1,1,Genre1:European Classical - string inst.
+5,1,2,Genre1:European Classical - string inst.
+6,1,1,Genre1:European Classical - string inst.
+7,1,2,Genre1:European Classical - string inst.
+8,1,2,Genre1:European Classical - string inst.
+9,1,2,Genre1:European Classical - string inst.
+10,1,2,Genre1:European Classical - string inst.
+11,1,1,Genre1:European Classical - string inst.
+12,1,2,Genre1:European Classical - string inst.
+13,1,0,Genre1:European Classical - string inst.
+14,1,1,Genre1:European Classical - string inst.
+15,1,0,Genre1:European Classical - string inst.
+16,1,1,Genre1:European Classical - string inst.
+17,1,2,Genre1:European Classical - string inst.
+18,1,1,Genre1:European Classical - string inst.
+19,1,1,Genre1:European Classical - string inst.
+0,2,0,Genre1:European Classical -percussion
+1,2,1,Genre1:European Classical -percussion
+2,2,1,Genre1:European Classical -percussion
+3,2,2,Genre1:European Classical -percussion
+4,2,1,Genre1:European Classical -percussion
+5,2,2,Genre1:European Classical -percussion
+6,2,2,Genre1:European Classical -percussion
+7,2,0,Genre1:European Classical -percussion
+8,2,2,Genre1:European Classical -percussion
+9,2,2,Genre1:European Classical -percussion
+10,2,1,Genre1:European Classical -percussion
+11,2,0,Genre1:European Classical -percussion
+12,2,1,Genre1:European Classical -percussion
+13,2,0,Genre1:European Classical -percussion
+14,2,1,Genre1:European Classical -percussion
+15,2,2,Genre1:European Classical -percussion
+16,2,1,Genre1:European Classical -percussion
+17,2,0,Genre1:European Classical -percussion
+18,2,0,Genre1:European Classical -percussion
+19,2,0,Genre1:European Classical -percussion
+0,3,0,Genre1:European Classical  - wind inst. 
+1,3,2,Genre1:European Classical  - wind inst. 
+2,3,1,Genre1:European Classical  - wind inst. 
+3,3,2,Genre1:European Classical  - wind inst. 
+4,3,1,Genre1:European Classical  - wind inst. 
+5,3,1,Genre1:European Classical  - wind inst. 
+6,3,0,Genre1:European Classical  - wind inst. 
+7,3,2,Genre1:European Classical  - wind inst. 
+8,3,2,Genre1:European Classical  - wind inst. 
+9,3,1,Genre1:European Classical  - wind inst. 
+10,3,2,Genre1:European Classical  - wind inst. 
+11,3,0,Genre1:European Classical  - wind inst. 
+12,3,2,Genre1:European Classical  - wind inst. 
+13,3,2,Genre1:European Classical  - wind inst. 
+14,3,2,Genre1:European Classical  - wind inst. 
+15,3,1,Genre1:European Classical  - wind inst. 
+16,3,0,Genre1:European Classical  - wind inst. 
+17,3,2,Genre1:European Classical  - wind inst. 
+18,3,2,Genre1:European Classical  - wind inst. 
+19,3,1,Genre1:European Classical  - wind inst. 
 0,4,0,Genre 2: Pop - vocals
 1,4,0,Genre 2: Pop - vocals
 2,4,1,Genre 2: Pop - vocals
@@ -159,83 +159,83 @@
 17,7,2,Genre 2: Pop - wind inst. 
 18,7,1,Genre 2: Pop - wind inst. 
 19,7,1,Genre 2: Pop - wind inst. 
-0,8,2,Genre 3: Jazz - vocals
-1,8,2,Genre 3: Jazz - vocals
-2,8,2,Genre 3: Jazz - vocals
-3,8,2,Genre 3: Jazz - vocals
-4,8,0,Genre 3: Jazz - vocals
-5,8,1,Genre 3: Jazz - vocals
-6,8,0,Genre 3: Jazz - vocals
-7,8,2,Genre 3: Jazz - vocals
-8,8,1,Genre 3: Jazz - vocals
-9,8,2,Genre 3: Jazz - vocals
-10,8,1,Genre 3: Jazz - vocals
-11,8,1,Genre 3: Jazz - vocals
-12,8,2,Genre 3: Jazz - vocals
-13,8,1,Genre 3: Jazz - vocals
-14,8,2,Genre 3: Jazz - vocals
-15,8,0,Genre 3: Jazz - vocals
-16,8,2,Genre 3: Jazz - vocals
-17,8,0,Genre 3: Jazz - vocals
-18,8,0,Genre 3: Jazz - vocals
-19,8,0,Genre 3: Jazz - vocals
-0,9,2,Genre 3: Jazz - string inst.
-1,9,2,Genre 3: Jazz - string inst.
-2,9,0,Genre 3: Jazz - string inst.
-3,9,1,Genre 3: Jazz - string inst.
-4,9,0,Genre 3: Jazz - string inst.
-5,9,1,Genre 3: Jazz - string inst.
-6,9,2,Genre 3: Jazz - string inst.
-7,9,2,Genre 3: Jazz - string inst.
-8,9,2,Genre 3: Jazz - string inst.
-9,9,2,Genre 3: Jazz - string inst.
-10,9,2,Genre 3: Jazz - string inst.
-11,9,1,Genre 3: Jazz - string inst.
-12,9,0,Genre 3: Jazz - string inst.
-13,9,2,Genre 3: Jazz - string inst.
-14,9,0,Genre 3: Jazz - string inst.
-15,9,2,Genre 3: Jazz - string inst.
-16,9,1,Genre 3: Jazz - string inst.
-17,9,1,Genre 3: Jazz - string inst.
-18,9,0,Genre 3: Jazz - string inst.
-19,9,0,Genre 3: Jazz - string inst.
-0,10,0,Genre 3: Jazz - percussion
-1,10,0,Genre 3: Jazz - percussion
-2,10,0,Genre 3: Jazz - percussion
-3,10,1,Genre 3: Jazz - percussion
-4,10,2,Genre 3: Jazz - percussion
-5,10,0,Genre 3: Jazz - percussion
-6,10,2,Genre 3: Jazz - percussion
-7,10,1,Genre 3: Jazz - percussion
-8,10,1,Genre 3: Jazz - percussion
-9,10,2,Genre 3: Jazz - percussion
-10,10,2,Genre 3: Jazz - percussion
-11,10,2,Genre 3: Jazz - percussion
-12,10,2,Genre 3: Jazz - percussion
-13,10,0,Genre 3: Jazz - percussion
-14,10,1,Genre 3: Jazz - percussion
-15,10,1,Genre 3: Jazz - percussion
-16,10,1,Genre 3: Jazz - percussion
-17,10,1,Genre 3: Jazz - percussion
-18,10,2,Genre 3: Jazz - percussion
-19,10,0,Genre 3: Jazz - percussion
-0,11,0,Genre 3: Jazz - wind inst. 
-1,11,1,Genre 3: Jazz - wind inst. 
-2,11,0,Genre 3: Jazz - wind inst. 
-3,11,0,Genre 3: Jazz - wind inst. 
-4,11,1,Genre 3: Jazz - wind inst. 
-5,11,1,Genre 3: Jazz - wind inst. 
-6,11,0,Genre 3: Jazz - wind inst. 
-7,11,0,Genre 3: Jazz - wind inst. 
-8,11,2,Genre 3: Jazz - wind inst. 
-9,11,1,Genre 3: Jazz - wind inst. 
-10,11,1,Genre 3: Jazz - wind inst. 
-11,11,0,Genre 3: Jazz - wind inst. 
-12,11,0,Genre 3: Jazz - wind inst. 
-13,11,1,Genre 3: Jazz - wind inst. 
-14,11,2,Genre 3: Jazz - wind inst. 
-15,11,0,Genre 3: Jazz - wind inst. 
-16,11,2,Genre 3: Jazz - wind inst. 
-17,11,1,Genre 3: Jazz - wind inst. 
-18,11,0,Genre 3: Jazz - wind inst. 
-19,11,2,Genre 3: Jazz - wind inst. 
+0,8,2,Genre 3:Indian Classical - vocals
+1,8,2,Genre 3:Indian Classical - vocals
+2,8,2,Genre 3:Indian Classical - vocals
+3,8,2,Genre 3:Indian Classical - vocals
+4,8,0,Genre 3:Indian Classical - vocals
+5,8,1,Genre 3:Indian Classical - vocals
+6,8,0,Genre 3:Indian Classical - vocals
+7,8,2,Genre 3:Indian Classical - vocals
+8,8,1,Genre 3:Indian Classical - vocals
+9,8,2,Genre 3:Indian Classical - vocals
+10,8,1,Genre 3:Indian Classical - vocals
+11,8,1,Genre 3:Indian Classical - vocals
+12,8,2,Genre 3:Indian Classical - vocals
+13,8,1,Genre 3:Indian Classical - vocals
+14,8,2,Genre 3:Indian Classical - vocals
+15,8,0,Genre 3:Indian Classical - vocals
+16,8,2,Genre 3:Indian Classical - vocals
+17,8,0,Genre 3:Indian Classical - vocals
+18,8,0,Genre 3:Indian Classical - vocals
+19,8,0,Genre 3:Indian Classical - vocals
+0,9,2,Genre 3:Indian Classical - string inst.
+1,9,2,Genre 3:Indian Classical - string inst.
+2,9,0,Genre 3:Indian Classical - string inst.
+3,9,1,Genre 3:Indian Classical - string inst.
+4,9,0,Genre 3:Indian Classical - string inst.
+5,9,1,Genre 3:Indian Classical - string inst.
+6,9,2,Genre 3:Indian Classical - string inst.
+7,9,2,Genre 3:Indian Classical - string inst.
+8,9,2,Genre 3:Indian Classical - string inst.
+9,9,2,Genre 3:Indian Classical - string inst.
+10,9,2,Genre 3:Indian Classical - string inst.
+11,9,1,Genre 3:Indian Classical - string inst.
+12,9,0,Genre 3:Indian Classical - string inst.
+13,9,2,Genre 3:Indian Classical - string inst.
+14,9,0,Genre 3:Indian Classical - string inst.
+15,9,2,Genre 3:Indian Classical - string inst.
+16,9,1,Genre 3:Indian Classical - string inst.
+17,9,1,Genre 3:Indian Classical - string inst.
+18,9,0,Genre 3:Indian Classical - string inst.
+19,9,0,Genre 3:Indian Classical - string inst.
+0,10,0,Genre 3:Indian Classical - percussion
+1,10,0,Genre 3:Indian Classical - percussion
+2,10,0,Genre 3:Indian Classical - percussion
+3,10,1,Genre 3:Indian Classical - percussion
+4,10,2,Genre 3:Indian Classical - percussion
+5,10,0,Genre 3:Indian Classical - percussion
+6,10,2,Genre 3:Indian Classical - percussion
+7,10,1,Genre 3:Indian Classical - percussion
+8,10,1,Genre 3:Indian Classical - percussion
+9,10,2,Genre 3:Indian Classical - percussion
+10,10,2,Genre 3:Indian Classical - percussion
+11,10,2,Genre 3:Indian Classical - percussion
+12,10,2,Genre 3:Indian Classical - percussion
+13,10,0,Genre 3:Indian Classical - percussion
+14,10,1,Genre 3:Indian Classical - percussion
+15,10,1,Genre 3:Indian Classical - percussion
+16,10,1,Genre 3:Indian Classical - percussion
+17,10,1,Genre 3:Indian Classical - percussion
+18,10,2,Genre 3:Indian Classical - percussion
+19,10,0,Genre 3:Indian Classical - percussion
+0,11,0,Genre 3:Indian Classical - wind inst. 
+1,11,1,Genre 3:Indian Classical - wind inst. 
+2,11,0,Genre 3:Indian Classical - wind inst. 
+3,11,0,Genre 3:Indian Classical - wind inst. 
+4,11,1,Genre 3:Indian Classical - wind inst. 
+5,11,1,Genre 3:Indian Classical - wind inst. 
+6,11,0,Genre 3:Indian Classical - wind inst. 
+7,11,0,Genre 3:Indian Classical - wind inst. 
+8,11,2,Genre 3:Indian Classical - wind inst. 
+9,11,1,Genre 3:Indian Classical - wind inst. 
+10,11,1,Genre 3:Indian Classical - wind inst. 
+11,11,0,Genre 3:Indian Classical - wind inst. 
+12,11,0,Genre 3:Indian Classical - wind inst. 
+13,11,1,Genre 3:Indian Classical - wind inst. 
+14,11,2,Genre 3:Indian Classical - wind inst. 
+15,11,0,Genre 3:Indian Classical - wind inst. 
+16,11,2,Genre 3:Indian Classical - wind inst. 
+17,11,1,Genre 3:Indian Classical - wind inst. 
+18,11,0,Genre 3:Indian Classical - wind inst. 
+19,11,2,Genre 3:Indian Classical - wind inst. 
