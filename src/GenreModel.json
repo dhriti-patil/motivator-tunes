@@ -1,7 +1,7 @@
 {
    "song_data":[
       {
-         "Name":"EU Classical",
+         "Name":"Genre1:European Classical",
          "Sub-Genre":[
             {
                "Name":"Vocals",
@@ -22,44 +22,44 @@
          ]
       },
       {
-         "Name":"iu Classical",
+         "Name":"Genre 2:Pop",
          "Sub-Genre":[
             {
                "Name":"Vocals",
-               "URL":"https://qwqwreqw"
+               "URL":"https://youtu.be/3JWTaaS7LdU?si=4TMbfeATk3OCLYfi"
             },
             {
                "Name":"Stringed",
-               "URL":"https://qwqwreqw"
+               "URL":"https://www.youtube.com/watch?v=RrutzRWXkKs"
             },
             {
                "Name":"Wind",
-               "URL":"https://qwqwreqw"
+               "URL":"https://www.youtube.com/watch?v=xZO5KTJTwhE"
             },
             {
                "Name":"Percussion",
-               "URL":"https://qwqwreqw"
+               "URL":"https://www.youtube.com/watch?v=-4pRhWAi80s"
             }
          ]
       },
       {
-         "Name":"EU Classical",
+         "Name":"Indian Classical",
          "Sub-Genre":[
             {
                "Name":"Vocals",
-               "URL":"https://qwqwreqw"
+               "URL":"https://www.youtube.com/watch?v=beJXJVwD3v4"
             },
             {
                "Name":"Stringed",
-               "URL":"https://qwqwreqw"
+               "URL":"https://www.youtube.com/watch?v=zVqvd6mhat8"
             },
             {
                "Name":"Wind",
-               "URL":"https://qwqwreqw"
+               "URL":"https://www.youtube.com/watch?v=SS56QuOG2FE"
             },
             {
                "Name":"Percussion",
-               "URL":"https://qwqwreqw"
+               "URL":"https://www.youtube.com/shorts/i0Jie0eBCl0"
             }
          ]
       }

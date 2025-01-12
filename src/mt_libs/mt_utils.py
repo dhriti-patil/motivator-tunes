@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
-from pandas import *
+import pandas as pd
 from scipy import signal
-import csv
+
 import builtins
 
 
@@ -10,7 +10,7 @@ import builtins
 ##############################################################
 def ReadCSV(filePath, *headerNames):
     # Read CSV
-    data = read_csv(filePath)
+    data = pd.read_csv(filePath)
 
     # Process Headers
     print("Num Headers : " + str(len(headerNames)))

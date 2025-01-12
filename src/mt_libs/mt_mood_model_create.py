@@ -10,7 +10,7 @@ import random
 from operator import add
 from mt_libs.mt_utils import *
 
-def CreateEmotionsModel(input_eeg_csv, plot_dir, inp_epochs=30):
+def CreateEmotionsModel(input_eeg_csv, plot_dir, inp_epochs):
     input_eeg_csv = pd.read_csv(input_eeg_csv)
     BATCH_SIZE = 64
     SHUFFLE_BUFFER_SIZE = BATCH_SIZE * 2

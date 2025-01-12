@@ -3,7 +3,7 @@ import json
 import time
 import argparse
 import pandas as pd
-from mt_libs.mt_keras import CreateEmotionsModel
+from mt_libs.mt_mood_model_create import CreateEmotionsModel
 from mt_libs.mt_mood_analyze import AnalyzeMood , play_song , close_chrome
 from mt_libs.mt_collab_filter_create import create_collaboration_model
 from mt_libs.mt_collab_filter_predict import predict_rating
@@ -21,7 +21,7 @@ def main():
 
     if args.mode == 'mood_model':
         print ("Creating mood_model...")
-        CreateEmotionsModel(INPUT_EEG_CSV, PLOT_DIR,5)
+        CreateEmotionsModel(INPUT_EEG_CSV, PLOT_DIR,30)
     elif args.mode == 'mood_analyze':
         print ("Analyzing mood based on Mood Model...")
         model_path = args.model
@@ -52,7 +52,7 @@ def main():
                 df.loc[0] = [99, 0, rating, "Genre1:classical - vocals"]
 
                 model , data, user2user_encoded, genre2genre_encoded, genre_encoded2genre = (
-                    create_collaboration_model('InputRatingData.csv', 'Genre_IDs.csv', 30, df))
+                    create_collaboration_model('InputRatingData.csv', 'Genre_IDs.csv', 100, df))
 
                 recommendations = predict_rating(model, data, 'Genre_IDs.csv', 99, user2user_encoded, genre2genre_encoded, genre_encoded2genre)
                 print(recommendations)

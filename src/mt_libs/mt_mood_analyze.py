@@ -4,7 +4,6 @@ from .mt_muselsl import record_direct
 from .mt_utils import GetFFT , FilterData
 import time
 import os
-from subprocess import Popen
 
 
 model = None
