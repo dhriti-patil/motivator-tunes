@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+import os
 
 def create_input(data, user_id, user2user_encoded, genre2genre_encoded, genre_encoded2genre):
     genre_id_const = "Genre_ID"
@@ -20,6 +21,7 @@ def predict(model, user_genre_array):
 
 
 def predict_rating(model, data, ID_FILE, new_user_id, user2user_encoded, genre2genre_encoded, genre_encoded2genre):
+    plotFileName_3 = "C:/Data/DhritiData/JugendForchst/JF_Project/git/motivator-tunes/src/Data"
 
     input_data, genres_listened_by_user = create_input(
         data,
@@ -27,6 +29,11 @@ def predict_rating(model, data, ID_FILE, new_user_id, user2user_encoded, genre2g
         user2user_encoded,
         genre2genre_encoded,
         genre_encoded2genre)
+
+    input_data_df = pd.DataFrame(input_data)
+    os.makedirs(plotFileName_3, exist_ok=True)
+    file_path = os.path.join(plotFileName_3, "collab_model_inp_data.csv")
+    input_data_df.to_csv(file_path, index=False)
 
     Genre_ids = [i[1] for i in input_data]
     genre_data_frame = pd.read_csv(ID_FILE)
@@ -40,4 +47,7 @@ def predict_rating(model, data, ID_FILE, new_user_id, user2user_encoded, genre2g
     joined_predictions['Predicted_Rating'] = np.array(predicted_rating)
 
     sorted_dataframe = joined_predictions.sort_values(by='Predicted_Rating', ascending=False)
+    os.makedirs(plotFileName_3, exist_ok=True)
+    file_path = os.path.join(plotFileName_3, "sorted_ratings.csv")
+    sorted_dataframe.to_csv(file_path, index=False)
     return sorted_dataframe

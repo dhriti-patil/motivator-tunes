@@ -1,5 +1,6 @@
 import keras
 import numpy as np
+import pandas as pd
 from .mt_muselsl import record_direct
 from .mt_utils import GetFFT , FilterData
 import time
@@ -11,6 +12,7 @@ sampling_freq = 256.00
 array_size = 512
 muse_device = "Muse-15D3"
 RECORDING_DURATION = 10
+
 
 
 def AnalyzeMood(inp_model_file_path):
@@ -32,6 +34,7 @@ def AnalyzeMood(inp_model_file_path):
     # while True:
     eeg_from_muse = None
     merged_eeg = None
+    plotFileName_2 = "C:/Data/DhritiData/JugendForchst/JF_Project/git/motivator-tunes/src/Data"
     try:
         eeg_from_muse = record_direct(RECORDING_DURATION, None, filename=None, backend='auto', interface=None, name=muse_device)
         data_tp9 = eeg_from_muse["TP9"].tolist()
@@ -39,6 +42,10 @@ def AnalyzeMood(inp_model_file_path):
         data_af8 = eeg_from_muse["AF8"].tolist()
         data_tp10 = eeg_from_muse["TP10"].tolist()
         merged_eeg = np.add(np.add(np.add(data_tp9, data_af7), data_af8), data_tp10)
+        merged_eeg_df = pd.DataFrame(merged_eeg)
+        os.makedirs(plotFileName_2, exist_ok=True)
+        file_path = os.path.join(plotFileName_2, "merged_eeg.csv")
+        merged_eeg_df.to_csv(file_path, index=False)
     except Exception as e:
         print (e)
 
@@ -62,6 +69,9 @@ def AnalyzeMood(inp_model_file_path):
 
     return Predicted_Label[0]
 
+#####################################################################################################################
+
+
 def play_song(subgenre_url):
     # CHROME_COMMAND = "\"C:\Program Files\Google\Chrome\Application\chrome.exe\""
     BROWSER_COMMAND = "\"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe\""
@@ -82,5 +92,5 @@ def close_chrome():
         print(e)
 
 
-
+###################################################################################################################
 

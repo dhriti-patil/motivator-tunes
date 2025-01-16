@@ -48,14 +48,16 @@ def main():
                 rating = AnalyzeMood(model_path)
                 print("\n\n###### Obtained Rating : " + str(rating))
 
-                df = pd.DataFrame(columns=['User_ID', 'Genre_ID', 'rating', 'Genre'])
-                df.loc[0] = [99, 0, rating, "Genre1:classical - vocals"]
+                df = pd.DataFrame(columns=['User_ID', 'Genre_ID', 'rating', 'Genre']) # created empty Dataframe with 4 different columns
+                df.loc[0] = [99, 0, rating, "Genre1:classical - vocals"] #added following values into the Dataframe created above
 
                 model , data, user2user_encoded, genre2genre_encoded, genre_encoded2genre = (
                     create_collaboration_model('InputRatingData.csv', 'Genre_IDs.csv', 100, df))
+                # we specify the details of our model and input the above created Dataframe into the collaborative Filtering Function
 
                 recommendations = predict_rating(model, data, 'Genre_IDs.csv', 99, user2user_encoded, genre2genre_encoded, genre_encoded2genre)
                 print(recommendations)
+
 
     else:
         print ("Exiting")

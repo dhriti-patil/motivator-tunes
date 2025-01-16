@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import pandas as pd
 from scipy import signal
+import os
 
 import builtins
 
@@ -28,8 +29,16 @@ def ReadCSV(filePath, *headerNames):
 # Filter Data
 ##############################################################
 def FilterData(data_eeg_cleaned, numTaps, band1, band2):
+    plotFileName = "C:\Data\DhritiData\JugendForchst\JF_Project\git\motivator-tunes\src\Data"
+    os.makedirs(plotFileName, exist_ok=True)
+    plotFileName = os.path.join(plotFileName, "Filter_signal.png")
+
     filter = signal.firwin(numTaps, [band1, band2], pass_zero=False)
     filteredSignal = signal.convolve(data_eeg_cleaned, filter, mode='same')
+    plt.figure(figsize=(8, 4))
+    plt.plot(filteredSignal,color='k', lw=2)
+    plt.savefig(plotFileName)
+    plt.close()
     return filteredSignal
 
 
@@ -37,10 +46,15 @@ def FilterData(data_eeg_cleaned, numTaps, band1, band2):
 # Get FFT
 ##############################################################
 def GetFFT(filteredSignal, frequency):
+    plotFileName = "C:\Data\DhritiData\JugendForchst\JF_Project\git\motivator-tunes\src\Data"
+    os.makedirs(plotFileName, exist_ok=True)
+    plotFileName = os.path.join(plotFileName, "FFT.png")
+
     win = 4 * frequency
     freqs, psd = signal.welch(filteredSignal, frequency, nperseg=win)
     truncated_freqs = freqs[:512]
     truncated_psd = psd[:512]
+    SaveImage(truncated_freqs, truncated_psd, plotFileName)
     return truncated_psd
 
 
@@ -50,8 +64,8 @@ def GetFFT(filteredSignal, frequency):
 def SaveImage(X_Values, Y_Values, plotPath):
     plt.figure(figsize=(8, 4))
     plt.plot(X_Values, Y_Values, color='k', lw=2)
-    plt.xlabel('Frequency (Hz)')
-    plt.ylabel('Power spectral density (V^2 / Hz)')
+    plt.xlabel('Frequency')
+    plt.ylabel('Power spectral density')
     plt.ylim([0, Y_Values.max() * 1.1])
     plt.xlim([0, 30])
     plotFileName = plotPath

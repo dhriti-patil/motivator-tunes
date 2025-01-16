@@ -1,0 +1,12 @@
+Genre_IDs,Genre_Names,Predicted_Rating
+3,Genre1:European Classical -percussion,0.79756105
+8,Genre 2: Pop - wind inst. ,0.7837859
+1,Genre1:European Classical - vocals,0.7801726
+6,Genre 2: Pop - string inst.,0.76698124
+9,Genre 3:Indian Classical - vocals,0.7642607
+10,Genre 3:Indian Classical - string inst.,0.7553411
+7,Genre 2: Pop - percussion,0.75230473
+2,Genre1:European Classical - string inst.,0.742769
+5,Genre 2: Pop - vocals,0.73455614
+4,Genre1:European Classical  - wind inst. ,0.7246627
+11,Genre 3:Indian Classical - percussion,0.7229904
