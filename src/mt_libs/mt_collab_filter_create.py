@@ -7,6 +7,7 @@ from tensorflow.keras import layers, Model, regularizers
 from .mt_reco import RecommenderNet
 import os
 
+##################################################################################################################################
 # Globals
 genre_id_const = "Genre_ID"
 user_id_const = "User_ID"
@@ -16,6 +17,7 @@ rating_const = "rating"
 rating_data_frame = None
 flag_loaded_rating_file = False
 
+###################################################################################################################################
 def create_collaboration_model(RATING_FILE, ID_file, epochs, df):
     global rating_data_frame , flag_loaded_rating_file
 
@@ -24,6 +26,8 @@ def create_collaboration_model(RATING_FILE, ID_file, epochs, df):
         flag_loaded_rating_file = True
 
     rating_data_frame = pd.concat([rating_data_frame, df])
+
+    ###############################################################################################################################
 
     user_ids = rating_data_frame[user_id_const].unique().tolist()
     user2user_encoded = {x: i for i, x in enumerate(user_ids)}
@@ -48,6 +52,8 @@ def create_collaboration_model(RATING_FILE, ID_file, epochs, df):
             user_id_const, num_users, genre_id_const, num_genres, rating_const, min_rating, max_rating
         ))
 
+    ################################################################################################################################
+
     rating_data_frame = rating_data_frame.sample(frac=1, random_state=42)
 
     x = rating_data_frame[[user_id_const, genre_id_const]].values
@@ -60,12 +66,15 @@ def create_collaboration_model(RATING_FILE, ID_file, epochs, df):
         y[train_indices:],
     )
 
+    ################################################################################################################################
+
     EMBEDDING_SIZE = 32
     model = RecommenderNet(num_users, num_genres, EMBEDDING_SIZE)
     model.compile(
         loss=tf.keras.losses.BinaryCrossentropy(),
         optimizer=tf.keras.optimizers.Adam(learning_rate=0.001)
     )
+
 
     history = model.fit(
         x = x_train,
@@ -78,6 +87,8 @@ def create_collaboration_model(RATING_FILE, ID_file, epochs, df):
     model.summary()
     test_loss = model.evaluate(x_val, y_val)
     print('\\nTest Loss: {}'.format(test_loss))
+
+    #################################################################################################################################
 
     # Return the Model
     return model , rating_data_frame, user2user_encoded, genre2genre_encoded, genre_encoded2genre
